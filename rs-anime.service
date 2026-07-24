@@ -1,0 +1,14 @@
+[Unit]
+Description=RS Anime 03 VPS backend
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/rs-anime-vps
+EnvironmentFile=/opt/rs-anime-vps/.env
+ExecStart=/opt/rs-anime-vps/.venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8787
+Restart=on-failure
+User=root
+
+[Install]
+WantedBy=multi-user.target
